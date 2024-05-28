@@ -1,45 +1,37 @@
-function funcaoFutura() {
-  window.location.href = 'notas_fiscais.html';
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('myModal');
+  const addButton = document.querySelector('.btn-primary');
+  const closeButton = document.querySelector('.close');
 
-function outraFuncaoFutura() {
-  alert("Outra função será implementada no futuro!");
-}
+  addButton.addEventListener('click', adicionarNotaFiscal);
+  closeButton.addEventListener('click', fecharModal);
 
-function mostrarPopup() {
-  alert("Essa função será implementada no futuro!");
-}
+  function adicionarNotaFiscal() {
+    const inputFile = document.getElementById('inputFile');
+    const fileName = inputFile.files[0]?.name;
+    if (fileName) {
+      // Exibir o nome do arquivo ao lado do botão adicionar
+      const fileNameElement = document.createElement('p');
+      fileNameElement.textContent = `Arquivo selecionado: ${fileName}`;
+      modal.querySelector('.modal-body').appendChild(fileNameElement);
+    }
+  }
 
-function mostrarTelas() {
-  document.querySelector('.intro-text').style.display = 'none';
-  document.querySelector('.about-section').style.display = 'none';
-  document.querySelector('.login-form').style.display = 'block';
-  document.querySelector('.register-form').style.display = 'block';
-  window.location.href = 'http://localhost/b/cadastro';
-}
+  function fecharModal() {
+    modal.classList.remove('animate__fadeIn'); // Remover a animação de entrada se estiver ativa
+    modal.classList.add('animate__fadeOut'); // Adicionar a animação de saída
 
-function mostrarPopup() {
-  $('#myModal').modal('show');
-}
+    modal.addEventListener('animationend', function() {
+      $('#myModal').modal('hide');
+      modal.classList.remove('animate__fadeOut'); // Remover a animação de saída após o término
+    }, { once: true });
 
-function adicionarNotaFiscal() {
-  var fileInput = document.getElementById('notaFiscalFile');
-  var fileName = fileInput.files[0].name;
-  alert("Nota Fiscal adicionada: " + fileName);
-  $('#myModal').modal('hide');
-}
 
-$('#myModal').on('hidden.bs.modal', function () {
-  var modalDialog = $(this).find('.modal-dialog');
-  modalDialog.css('transform', 'translate(0, -50%)');
-  modalDialog.css('opacity', '0');
-  $('#notaFiscalFile').val('');
-});
+  }
 
-$('#myModal').on('show.bs.modal', function () {
-  var modalDialog = $(this).find('.modal-dialog');
-  setTimeout(function() {
-    modalDialog.css('transform', 'translate(0, 0)');
-    modalDialog.css('opacity', '1');
-  }, 10); 
+  // Adicionar a animação de fade-in ao abrir o modal
+  $('#myModal').on('show.bs.modal', function () {
+    modal.classList.add('animate__fadeIn');
+    
+  });
 });

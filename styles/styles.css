@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -184,7 +183,78 @@ body {
     font-size: 1rem; 
     padding: 0.25rem 0.6rem; 
 }
+
 .no-select {
     user-select: none;
+}
+
+.notas-fiscais-container {
+    max-width: 100%;
+}
+  
+.notas-fiscais-container .section-title {
+    margin-left: -0px; /* Ajuste este valor conforme necessário */
+}
+  
+/* Ajustes para diferentes tamanhos de tela */
+@media (max-width: 768px) {
+    .notas-fiscais-container .section-title {
+      margin-left: -150px; /* Ajuste este valor para telas menores */
+    }
+}
+  
+@media (max-width: 576px) {
+    .notas-fiscais-container .section-title {
+      margin-left: 0; /* Ajuste para telas pequenas */
+      justify-content: center; /* Centralizar em telas muito pequenas, se necessário */
+    }
+}
+
+.btn-custom-sm {
+    padding: 0.45rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+/* Adicione estas classes para a animação de entrada e saída */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .animate__fadeIn {
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  .animate__fadeOut {
+    animation: fadeOut 0.25s forwards;
+  }
+
+  /* Adicione um fundo escuro com opacidade */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Cor escura com 50% de opacidade */
+    transition: opacity 0.3s ease; /* Adiciona uma transição suave de opacidade */
+}
+
+/* Adicione uma classe para controlar o fade */
+.modal-backdrop.fade-effect {
+    opacity: 0; /* Comece com opacidade zero */
+}
+.fade-effect {
+  background-color: rgba(0, 0, 0, 0.5); /* Cor escura com 50% de opacidade */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
