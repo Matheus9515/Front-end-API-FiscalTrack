@@ -7,7 +7,6 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/styles.css">
   <style>
-    .login-form,
     .register-form {
       margin-bottom: 20px;
     }
@@ -16,34 +15,10 @@
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient">
-    <!-- Logo com link para a página inicial -->
     <a class="navbar-brand" href="index.html">Fiscal Track</a>
-    <!-- Botões da navbar -->
-    <div class="d-flex align-items-center">
-        <button class="btn btn-custom btn-transparent" onclick="window.location.href='notas_fiscais.html'">Notas Fiscais</button>
-        <button class="btn btn-custom btn-transparent" onclick="outraFuncaoFutura()">Relatórios</button>
-    </div>
-    <!-- Link para o perfil -->
-    <a href="cadastro.html" class="profile-link ml-auto" id="profileLink"><img class="profile-picture animate__animated animate__pulse" src="../images/nopfp.png" alt="Foto de Perfil"></a>
 </nav>
-<!-- Login e Registro -->
-<div class="container login-form col-md-6 float-right">
-    <!-- Login Form -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="section-title" style="user-select: none;">Login <span class="forgot-password ml-3"><a href="#" onclick="mostrarPopup()">Esqueceu a senha?</a></span></h2>
-    </div>
-    <form>
-        <div class="form-group">
-            <input type="email" class="form-control custom-textbox" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control custom-textbox" placeholder="Senha" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Logar</button>
-    </form>
-</div>
-<div class="container register-form col-md-6 float-left">
-    <!-- Register Form -->
+<!-- Registro -->
+<div class="container register-form col-md-6 mx-auto mt-5">
     <h2 class="section-title" style="user-select: none;">Registro</h2>
     <form id="registerForm">
         <div class="form-group">
@@ -58,7 +33,7 @@
             <div class="invalid-feedback">Os endereços de email não correspondem.</div>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control custom-textbox" placeholder="Senha" required>
+            <input type="password" id="password" class="form-control custom-textbox" placeholder="Senha" required>
         </div>
         <div class="form-group">
             <input type="password" id="confirmPassword" class="form-control custom-textbox" placeholder="Confirmar Senha" required>
@@ -70,48 +45,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="/scripts/script.js"></script>
-<script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita o envio do formulário
-
-        var email = document.getElementById('email');
-        var confirmEmail = document.getElementById('confirmEmail');
-        var password = document.getElementById('confirmPassword');
-        var confirmPassword = document.getElementById('confirmPassword');
-        var isValid = true;
-
-        // Validações
-        if (!email.checkValidity()) {
-            email.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            email.classList.remove('is-invalid');
-        }
-
-        if (email.value !== confirmEmail.value) {
-            confirmEmail.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            confirmEmail.classList.remove('is-invalid');
-        }
-
-        if (password.value !== confirmPassword.value) {
-            confirmPassword.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            confirmPassword.classList.remove('is-invalid');
-        }
-
-        // Se todos os campos são válidos, submete o formulário
-        if (isValid) {
-            this.submit();
-        }
-    });
-
-    function mostrarPopup() {
-        alert("Essa função será implementada no futuro!");
-    }
-</script>
+<script src="/scripts/form-validation.js"></script>
 </body>
 </html>

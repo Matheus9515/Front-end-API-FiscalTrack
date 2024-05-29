@@ -1,9 +1,20 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Navbar */
 .navbar {
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.39);
 }
@@ -36,88 +47,32 @@
     text-shadow: none;
 }
 
-.intro-text {
-    font-size: 35px;
-    font-weight: bold;
-    font-style: italic;
-    color: #000000;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    pointer-events: none;
+/* Centralized Container */
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.about-section {
-    padding: 40px;
-    background-color: #00000010;
-    border-radius: 10px;
-    margin-top: 40px;
-    font-family: Arial, sans-serif;
-}
-
+/* Forms */
 .section-title {
     font-size: 24px;
     font-weight: bold;
     color: #000000;
-}
-
-.section-description {
-    font-size: 18px;
-    color: #333;
-    margin-top: 20px;
-}
-
-.btn-custom {
-    font-size: 20px;
-    color: white !important;
-    background-color: transparent;
-    border: 5px solid transparent;
-    font-family: 'Arial', sans-serif;
-    transition: box-shadow 0.3s ease;
-}
-
-.btn-custom:hover {
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-}
-
-body {
-    background-image: url('../images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.profile-picture {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 4px solid #ffffff85;
-}
-
-.bg-gradient {
-    background-image: linear-gradient(to right, rgb(61, 242, 255), rgb(185, 99, 255));
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .custom-textbox {
-    width: 25%;
-    max-width: 300px;
-    margin: 0 auto;
-    margin-left: 0px;
-}
-
-.custom-margin-left {
-    margin-left: -20px;
+    margin-bottom: 10px;
 }
 
 .forgot-password {
     font-size: 14px;
     font-family: Arial, sans-serif;
-    margin-left: 10px;
+    margin-top: 10px;
+    text-align: right;
 }
 
 .forgot-password a {
@@ -131,25 +86,9 @@ body {
 
 .login-form,
 .register-form {
+    width: 100%;
+    max-width: 400px;
     margin-top: 25px;
-}
-
-.modal.fade .modal-dialog {
-    transform: translate(0, -50%);
-    transition: transform 0.3s ease-out;
-    -webkit-transform: translate(0, -50%);
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    -moz-transform: translate(0, -50%);
-    -moz-transition: -moz-transform 0.3s ease-out;
-    -o-transform: translate(0, -50%);
-    -o-transition: -o-transform 0.3s ease-out;
-}
-
-.modal.fade.show .modal-dialog {
-    transform: translate(0, 0);
-    -webkit-transform: translate(0, 0);
-    -moz-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
 }
 
 .btn-primary {
@@ -160,101 +99,84 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 .btn-primary:hover {
     background-color: #0056b3;
 }
 
-.btn-sm {
-    font-size: 1rem; 
-    padding: 0.25rem 0.6rem; 
+/* Custom Button */
+.btn-custom {
+    font-size: 20px;
+    color: white !important;
+    background-color: transparent;
+    border: 5px solid transparent;
+    font-family: 'Arial', sans-serif;
+    transition: box-shadow 0.3s ease;
 }
 
+.btn-custom:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Picture */
 .profile-picture {
-    transition: transform 0.3s ease; 
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 4px solid #ffffff85;
+    transition: transform 0.3s ease;
 }
-  
+
 .profile-picture:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
-  .btn-sm {
-    font-size: 1rem; 
-    padding: 0.25rem 0.6rem; 
+/* Background Gradient */
+.bg-gradient {
+    background-image: linear-gradient(to right, rgb(61, 242, 255), rgb(185, 99, 255));
 }
 
-.no-select {
-    user-select: none;
+/* Modal Animation */
+.modal.fade .modal-dialog {
+    transform: translate(0, -50%);
+    transition: transform 0.3s ease-out;
 }
 
-.notas-fiscais-container {
-    max-width: 100%;
-}
-  
-.notas-fiscais-container .section-title {
-    margin-left: -0px; /* Ajuste este valor conforme necessário */
-}
-  
-/* Ajustes para diferentes tamanhos de tela */
-@media (max-width: 768px) {
-    .notas-fiscais-container .section-title {
-      margin-left: -150px; /* Ajuste este valor para telas menores */
-    }
-}
-  
-@media (max-width: 576px) {
-    .notas-fiscais-container .section-title {
-      margin-left: 0; /* Ajuste para telas pequenas */
-      justify-content: center; /* Centralizar em telas muito pequenas, se necessário */
-    }
+.modal.fade.show .modal-dialog {
+    transform: translate(0, 0);
 }
 
-.btn-custom-sm {
-    padding: 0.45rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0.2rem;
-}
-
-/* Adicione estas classes para a animação de entrada e saída */
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-  
-  .animate__fadeIn {
-    animation: fadeIn 0.5s forwards;
-  }
-  
-  .animate__fadeOut {
-    animation: fadeOut 0.25s forwards;
-  }
-
-  /* Adicione um fundo escuro com opacidade */
 .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.5); /* Cor escura com 50% de opacidade */
-    transition: opacity 0.3s ease; /* Adiciona uma transição suave de opacidade */
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
 }
 
-/* Adicione uma classe para controlar o fade */
 .modal-backdrop.fade-effect {
-    opacity: 0; /* Comece com opacidade zero */
+    opacity: 0;
 }
+
 .fade-effect {
-  background-color: rgba(0, 0, 0, 0.5); /* Cor escura com 50% de opacidade */
-  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 24px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+    .section-title {
+        font-size: 18px;
+    }
 }
