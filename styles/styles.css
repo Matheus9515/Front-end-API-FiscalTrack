@@ -50,9 +50,12 @@ body {
 /* Centralized Container */
 .centered-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 /* Forms */
@@ -179,4 +182,66 @@ body {
     .section-title {
         font-size: 18px;
     }
+}
+
+/* Home Page Specific */
+.home-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.home-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.home-subtitle {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.vantages-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vantages-item {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.vantages-item::before {
+    content: '✔';
+    color: #007bff;
+    margin-right: 10px;
+}
+
+/* Additional Styling for Phrases */
+.home-subtitle, .vantages-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.vantages-item-description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.vantages-block {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
 }
