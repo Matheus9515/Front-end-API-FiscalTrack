@@ -35,3 +35,52 @@ document.addEventListener('DOMContentLoaded', function() {
     
   });
 });
+
+// script.js
+
+function adicionarNotaFiscal() {
+  const fileInput = document.getElementById('inputFile');
+  const notasFiscaisList = document.getElementById('notasFiscaisList');
+
+  if (fileInput.files.length === 0) {
+      alert('Por favor, selecione um arquivo.');
+  } else {
+      const file = fileInput.files[0];
+      const fileName = file.name;
+
+      // Cria um elemento para exibir a nota fiscal
+      const notaFiscalItem = document.createElement('div');
+      notaFiscalItem.classList.add('col-12', 'col-md-4', 'mb-3');
+      notaFiscalItem.innerHTML = `
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">${fileName}</h5>
+                  <p class="card-text">Nota fiscal adicionada com sucesso.</p>
+              </div>
+          </div>
+      `;
+
+      // Adiciona o elemento à lista de notas fiscais
+      notasFiscaisList.appendChild(notaFiscalItem);
+
+      // Fecha o modal
+      $('#myModal').modal('hide');
+      
+      // Limpa o campo de input
+      fileInput.value = '';
+  }
+}
+
+// script.js
+
+function gerarRelatorio() {
+  const dataInicial = document.getElementById('dataInicial').value;
+  const dataFinal = document.getElementById('dataFinal').value;
+
+  if (!dataInicial || !dataFinal) {
+      alert('Por favor, selecione as datas inicial e final.');
+  } else {
+      // Lógica para gerar o relatório
+      alert(`Relatório gerado de ${dataInicial} a ${dataFinal}!`);
+  }
+}

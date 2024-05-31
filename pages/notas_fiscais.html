@@ -13,47 +13,48 @@
     <a class="navbar-brand" href="index.html">Fiscal Track</a>
     <div class="d-flex align-items-center">
       <button class="btn btn-custom btn-transparent" onclick="window.location.href='notas_fiscais.html'">Notas Fiscais</button>
-      <button class="btn btn-custom btn-transparent" onclick="outraFuncaoFutura()">Relatórios</button>
+      <button class="btn btn-custom btn-transparent" onclick="window.location.href='relatorios.html'">Relatórios</button>
     </div>
-    <a href="cadastro.html" class="profile-link ml-auto" id="profileLink"><img class="profile-picture animate__animated animate__pulse" src="../images/nopfp.png" alt="Foto de Perfil"></a>
+    <a href="perfil.html" class="profile-link ml-auto" id="profileLink"><img class="profile-picture animate__animated animate__pulse" src="../images/nopfp.png" alt="Foto de Perfil"></a>
   </nav>
   <!-- Notas Fiscais -->
   <div class="container notas-fiscais-container mt-5">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 text-center">
         <h2 class="section-title no-select">
           Notas Fiscais
           <button type="button" class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#myModal">+</button>
         </h2>
       </div>
     </div>
-    <span id="fileInfo"></span>
+    <div class="row mt-4" id="notasFiscaisList">
+      <!-- Lista de notas fiscais será inserida aqui -->
+    </div>
   </div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar Nota Fiscal</h5>
-        <button type="button" id="closeButton" class="close" aria-label="Fechar" onclick="fecharModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Formulário para adicionar a nota fiscal -->
-        <form id="formNotaFiscal">
-          <div class="form-group">
-            <label for="inputFile">Selecionar arquivo:</label>
-            <input type="file" class="form-control-file" id="inputFile" name="inputFile" accept=".pdf, .jpg, .png">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-custom-sm" onclick="adicionarNotaFiscal()">Adicionar</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adicionar Nota Fiscal</h5>
+          <button type="button" class="close" aria-label="Fechar" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulário para adicionar a nota fiscal -->
+          <form id="formNotaFiscal">
+            <div class="form-group">
+              <label for="inputFile">Selecionar arquivo:</label>
+              <input type="file" class="form-control-file" id="inputFile" name="inputFile" accept=".pdf, .jpg, .png">
+            </div>
+            <button type="button" class="btn btn-primary btn-custom-sm" onclick="adicionarNotaFiscal()">Adicionar</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
