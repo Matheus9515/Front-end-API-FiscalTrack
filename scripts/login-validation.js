@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
       fetch('https://api-for-invoices.onrender.com/login', { // URL da API de login
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'origin': "https://www.allowedorigin.com"
         },
         body: JSON.stringify(loginData)
       })
