@@ -13,44 +13,66 @@
     <a class="navbar-brand" href="index.html">Fiscal Track</a>
     <div class="d-flex align-items-center">
       <button class="btn btn-custom btn-transparent" onclick="window.location.href='notas_fiscais.html'">Notas Fiscais</button>
-      <button class="btn btn-custom btn-transparent" onclick="window.location.href='relatorios.html'">Relatórios</button>
+      <button class="btn btn-custom btn-transparent" onclick="outraFuncaoFutura()">Relatórios</button>
     </div>
-    <a href="perfil.html" class="profile-link ml-auto" id="profileLink"><img class="profile-picture animate__animated animate__pulse" src="../images/nopfp.png" alt="Foto de Perfil"></a>
+    <a href="cadastro.html" class="profile-link ml-auto" id="profileLink"><img class="profile-picture animate__animated animate__pulse" src="../images/nopfp.png" alt="Foto de Perfil"></a>
   </nav>
-  <!-- Notas Fiscais -->
-  <div class="container notas-fiscais-container mt-5">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title no-select">
-          Notas Fiscais
-          <button type="button" class="btn btn-primary btn-sm ml-3" data-toggle="modal" data-target="#myModal">+</button>
-        </h2>
-      </div>
-    </div>
-    <div class="row mt-4" id="notasFiscaisList">
-      <!-- Lista de notas fiscais será inserida aqui -->
+
+  <!-- Container principal -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Notas Fiscais</h2>
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#myModal">+</button>
+    <div class="table-responsive">
+      <table class="table table-bordered" id="notasFiscaisTable">
+        <thead class="thead-light">
+          <tr>
+            <th>Arquivo PDF</th>
+            <th>Data da Venda</th>
+            <th>Descrição do Produto</th>
+            <th>Valor Recebido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas serão adicionadas dinamicamente aqui -->
+        </tbody>
+      </table>
     </div>
   </div>
-  
+
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Adicionar Nota Fiscal</h5>
-          <button type="button" class="close" aria-label="Fechar" data-dismiss="modal">
+          <button type="button" class="close" aria-label="Fechar" onclick="fecharModal()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <!-- Formulário para adicionar a nota fiscal -->
           <form id="formNotaFiscal">
             <div class="form-group">
               <label for="inputFile">Selecionar arquivo:</label>
               <input type="file" class="form-control-file" id="inputFile" name="inputFile" accept=".pdf, .jpg, .png">
             </div>
-            <button type="button" class="btn btn-primary btn-custom-sm" onclick="adicionarNotaFiscal()">Adicionar</button>
+            <div id="camposPreenchimento" style="display: none;">
+              <div class="form-group">
+                <label for="dataVenda">Data da Venda:</label>
+                <input type="date" class="form-control" id="dataVenda" name="dataVenda">
+              </div>
+              <div class="form-group">
+                <label for="descricaoProduto">Descrição do Produto:</label>
+                <input type="text" class="form-control" id="descricaoProduto" name="descricaoProduto">
+              </div>
+              <div class="form-group">
+                <label for="valorRecebido">Valor Recebido:</label>
+                <input type="number" class="form-control" id="valorRecebido" name="valorRecebido" step="0.01">
+              </div>
+            </div>
           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="salvarDetalhes">Salvar</button>
         </div>
       </div>
     </div>
