@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         password: password
       };
   
-      fetch('https://api-for-invoices.onrender.com', { // Substitua 'YOUR_API_ENDPOINT_HERE' pelo URL do endpoint de login da sua API
+      fetch('https://api-for-invoices.onrender.com/login', { // URL da API de login
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(response => response.json())
       .then(data => {
-        if (data.success) {
+        if (data.success) { // Assumindo que a resposta da API contém uma chave 'success'
           // Salve o token de autenticação, se houver
           localStorage.setItem('authToken', data.token);
   
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
           window.location.href = 'notas_fiscais.html';
         } else {
           // Exibir mensagem de erro
+          loginError.textContent = 'Credenciais inválidas. Por favor, tente novamente.';
           loginError.style.display = 'block';
         }
       })
