@@ -8,15 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function abrirModal() {
     $('#myModal').modal('show');
-    $('#myModal').addClass('fade-in');
   }
 
   function fecharModal() {
-    $('#myModal').modal('hide');
-    $('#myModal').removeClass('fade-in');
-    setTimeout(function() {
+    modal.classList.add('animate__fadeOut'); // Adicionar a animação de saída
+    modal.addEventListener('animationend', function() {
       $('#myModal').modal('hide');
-    }, 300); // Aguarda 300ms para permitir a animação de fade-out
+      modal.classList.remove('animate__fadeOut'); // Remover a animação de saída após o término
+    }, { once: true });
   }
 
   function adicionarNotaFiscal() {
