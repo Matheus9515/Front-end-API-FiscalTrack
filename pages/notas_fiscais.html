@@ -7,7 +7,6 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
   <!-- Navbar -->
@@ -49,7 +48,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Adicionar Nota Fiscal</h5>
-          <button type="button" class="close" aria-label="Fechar">
+          <button type="button" class="close" aria-label="Fechar" onclick="fecharModal()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -63,15 +62,18 @@
               <div class="form-group">
                 <label for="dataVenda">Data da Venda:</label>
                 <input type="date" class="form-control" id="dataVenda" name="dataVenda" required>
-              </div>
-              <div class="form-group">
+                <span id="dataVendaError" class="error-message"></span>
+            </div>
+            <div class="form-group">
                 <label for="descricaoProduto">Descrição do Produto:</label>
                 <input type="text" class="form-control" id="descricaoProduto" name="descricaoProduto" required>
-              </div>
-              <div class="form-group">
+                <span id="descricaoProdutoError" class="error-message"></span>
+            </div>
+            <div class="form-group">
                 <label for="valorRecebido">Valor Recebido:</label>
                 <input type="number" class="form-control" id="valorRecebido" name="valorRecebido" step="0.01" required>
-              </div>
+                <span id="valorRecebidoError" class="error-message"></span>
+            </div>            
             </div>
           </form>
         </div>

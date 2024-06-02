@@ -348,3 +348,12 @@ width: auto;
     background-color: #5e48a0;
     border-color: #5e48a0;
   }
+
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+}
+
+.error {
+    display: block;
+}
