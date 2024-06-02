@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(response => response.json())
       .then(data => {
-        if (data.success) { // Assumindo que a resposta da API contém uma chave 'success'
-          // Salve o token de autenticação, se houver
+        if (data.success) {
+          // Salve o token de autenticação
           localStorage.setItem('authToken', data.token);
   
           // Redirecionar para a página principal

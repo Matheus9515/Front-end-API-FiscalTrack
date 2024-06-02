@@ -336,3 +336,15 @@ width: auto;
 .animate__fadeOut {
     animation: fadeOut 0.25s forwards;
 }
+
+/*botão de pdf*/
+
+.btn-custom-color {
+    background-color: #7760bd;
+    border-color: #7760bd;
+    color: white;
+  }
+  .btn-custom-color:hover {
+    background-color: #5e48a0;
+    border-color: #5e48a0;
+  }

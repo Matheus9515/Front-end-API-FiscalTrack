@@ -1,48 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
     const registerForm = document.getElementById('registerForm');
-    const registerError = document.getElementById('registerError');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const confirmEmailInput = document.getElementById('confirmEmail');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
   
     registerForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Evitar o envio do formulário
   
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+      // Verificar se os campos de email e senha correspondem aos campos de confirmação
+      if (emailInput.value !== confirmEmailInput.value) {
+        confirmEmailInput.classList.add('is-invalid');
+        return;
+      } else {
+        confirmEmailInput.classList.remove('is-invalid');
+      }
   
-      const registerData = {
-        name: name,
-        email: email,
-        password: password
+      if (passwordInput.value !== confirmPasswordInput.value) {
+        confirmPasswordInput.classList.add('is-invalid');
+        return;
+      } else {
+        confirmPasswordInput.classList.remove('is-invalid');
+      }
+  
+      // Se todos os campos estiverem corretos, enviar o formulário para a API
+      const userData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        password: passwordInput.value
       };
   
-      fetch('https://api-for-invoices.onrender.com/user', { // URL da API de registro
+      fetch('https://api-for-invoices.onrender.com/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(registerData)
+        body: JSON.stringify(userData)
       })
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Erro na requisição de registro');
+        if (response.ok) {
+          return response.json();
+        } else {
+          return response.json().then(err => { throw new Error(err.message); });
         }
-        return response.json();
       })
       .then(data => {
-        if (data.success) { // Assumindo que a resposta da API contém uma chave 'success'
-          // Redirecionar para a página de login
-          window.location.href = 'login.html';
-        } else {
-          // Exibir mensagem de erro
-          registerError.textContent = 'Ocorreu um erro ao tentar se registrar. Por favor, tente novamente.';
-          registerError.style.display = 'block';
-        }
+        console.log('Registro bem-sucedido:', data);
+        alert('Registro bem-sucedido! Faça o login para continuar.');
+        // Redirecionar para a página de login
+        window.location.href = 'login.html';
       })
       .catch(error => {
-        console.error('Erro:', error);
-        registerError.textContent = 'Ocorreu um erro ao tentar se registrar. Por favor, tente novamente mais tarde.';
-        registerError.style.display = 'block';
+        console.error('Erro no registro:', error);
+        alert('Erro no registro: ' + error.message);
       });
+  
     });
   });
   
