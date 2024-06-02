@@ -12,6 +12,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    padding-top: 55px; /* Height of the fixed navbar */
 }
 
 /* Navbar */
@@ -25,6 +26,7 @@ body {
     font-style: italic;
     font-family: Arial, sans-serif;
     transition: text-shadow 0.3s ease;
+    user-select: none;
 }
 
 .navbar-brand:hover,
@@ -45,28 +47,113 @@ body {
     color: #ffffff;
     width: 0px;
     text-shadow: none;
+    user-select: none;
 }
 
-/* Centralized Container */
-.centered-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 50px 20px;
+/* Home Page Specific */
+.home-container {
     text-align: center;
+    padding: 50px 20px;
+
 }
 
-/* Forms */
+.welcome-text {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+    user-select: none
+}
+
+.home-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+    user-select: none
+}
+
+.home-subtitle {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 50px;
+    user-select: none
+}
+
 .section-title {
     font-size: 24px;
     font-weight: bold;
     color: #000000;
     margin-bottom: 20px;
-    text-align: center;
 }
 
+.vantages-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.vantages-block {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(45% - 20px); /* 45% width with space for the gap */
+    max-width: calc(45% - 20px);
+}
+
+.vantages-item {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center; /* Centraliza o texto */
+    justify-content: center; /* Centraliza os itens */
+}
+
+.vantages-item i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.vantages-item-description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 24px;
+        
+    }
+    .section-title {
+        font-size: 20px;
+    }
+
+    .vantages-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vantages-block {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+    .section-title {
+        font-size: 18px;
+    }
+}
+
+/* Forms */
 .custom-textbox {
     margin-bottom: 10px;
 }
@@ -145,6 +232,7 @@ body {
 .modal.fade .modal-dialog {
     transform: translate(0, -50%);
     transition: transform 0.3s ease-out;
+
 }
 
 .modal.fade.show .modal-dialog {
@@ -157,210 +245,6 @@ body {
 }
 
 .modal-backdrop.fade-effect {
-    opacity: 0;
+    opacity: 0.5;
 }
 
-.fade-effect {
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 24px;
-    }
-    .section-title {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 576px) {
-    .navbar-brand {
-        font-size: 20px;
-    }
-    .section-title {
-        font-size: 18px;
-    }
-}
-
-/* Home Page Specific */
-.home-container {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.home-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 20px;
-}
-
-.home-subtitle {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.vantages-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.vantages-item {
-    font-size: 20px;
-    color: #000000;
-    margin-bottom: 15px;
-}
-
-.vantages-item::before {
-    content: '✔';
-    color: #007bff;
-    margin-right: 10px;
-}
-
-/* Additional Styling for Phrases */
-.home-subtitle, .vantages-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.vantages-item-description {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-}
-
-.vantages-block {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-}
-
-/* styles.css */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
-}
-
-.navbar {
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.39);
-}
-
-.navbar-brand {
-    font-size: 30px;
-    font-weight: bold;
-    font-style: italic;
-    font-family: Arial, sans-serif;
-    transition: text-shadow 0.3s ease;
-}
-
-.navbar-brand:hover,
-.navbar-brand:focus,
-.navbar-brand:active {
-    color: #fff;
-    text-shadow: 0px 0px 10px rgb(255, 255, 255);
-}
-
-.profile-link {
-    margin-left: auto;
-}
-
-.profile-picture {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 4px solid #ffffff85;
-    transition: transform 0.3s ease;
-}
-
-.profile-picture:hover {
-    transform: scale(1.1);
-}
-
-.bg-gradient {
-    background-image: linear-gradient(to right, rgb(61, 242, 255), rgb(185, 99, 255));
-}
-
-.section-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000000;
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: 10px;
-}
-
-.card-header {
-    background-color: #ffffff;
-    border-bottom: none;
-    text-align: center;
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.btn-custom-sm {
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-@media (max-width: 768px) {
-    .container {
-        margin-top: 20px;
-    }
-
-    .card {
-        margin-bottom: 20px;
-    }
-}
-/* tabela grid */
-.modal-dialog-centered {
-    display: flex;
-    align-items: center;
-    min-height: calc(100% - 1rem);
-  }
-  
-  .table {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #212529;
-  }
-  
-  .table th,
-  .table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-  }
-  
-  .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-  }
-  
-  .table tbody + tbody {
-    border-top: 2px solid #dee2e6;
-  }
-  
