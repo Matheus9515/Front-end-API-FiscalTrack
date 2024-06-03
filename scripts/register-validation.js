@@ -26,27 +26,21 @@ document.addEventListener('DOMContentLoaded', function() {
   
       // Se todos os campos estiverem corretos, enviar o formulário para a API
       const userData = {
-        name: nameInput.value,
-        email: emailInput.value,
-        password: passwordInput.value
+        Nome: nameInput.value,
+        Email: emailInput.value,
+        Senha: passwordInput.value
       };
   
       fetch('https://api-for-invoices.onrender.com/user', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('authToken')
         },
         body: JSON.stringify(userData)
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          return response.json().then(err => { throw new Error(err.message); });
-        }
-      })
       .then(data => {
-        console.log('Registro bem-sucedido:', data);
+        console.log('Registro bem-sucedido:');
         alert('Registro bem-sucedido! Faça o login para continuar.');
         // Redirecionar para a página de login
         window.location.href = 'login.html';
