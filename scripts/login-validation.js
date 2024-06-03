@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Evitar o envio do formulário
   
-      const email = document.getElementById('email').value;
+      const Email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-  
+
       const loginData = {
-        email: email,
+        Email: Email,
         password: password
       };
   
@@ -17,20 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'origin': "https://www.allowedorigin.com"
         },
         body: JSON.stringify(loginData)
       })
       .then(response => response.json())
       .then(data => {
-        if (data.success) {
-          // Salve o token de autenticação
-          localStorage.setItem('authToken', data.token);
-  
-          // Redirecionar para a página principal
+        if (data.tkn) {
+          localStorage.setItem('authToken', data.tkn);
           window.location.href = 'notas_fiscais.html';
         } else {
-          // Exibir mensagem de erro
           loginError.textContent = 'Credenciais inválidas. Por favor, tente novamente.';
           loginError.style.display = 'block';
         }

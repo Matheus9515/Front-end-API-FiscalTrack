@@ -1,21 +1,20 @@
 $(document).ready(function() {
     // Exemplo de dados para a tabela
-    const notasFiscais = [
-        {
-            id: 1,
-            dataVenda: '2023-05-10',
-            descricaoProduto: 'Produto A',
-            valorRecebido: 150.00,
-            pdfUrl: 'nota_fiscal_1.pdf'
+    fetch('https://api-for-invoices.onrender.com/invoice', { // URL da API de login
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('authToken')
         },
-        {
-            id: 2,
-            dataVenda: '2023-06-15',
-            descricaoProduto: 'Produto B',
-            valorRecebido: 200.00,
-            pdfUrl: 'nota_fiscal_2.pdf'
-        }
-    ];
+      })
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(adicionarLinha);
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+      });
+    
 
     // Variável para armazenar o arquivo selecionado
     let inputFile;
@@ -29,16 +28,13 @@ $(document).ready(function() {
                         <i class="fa fa-file-pdf-o"></i>
                     </button>
                 </td>
-                <td>${nota.dataVenda}</td>
-                <td>${nota.descricaoProduto}</td>
-                <td>${nota.valorRecebido.toFixed(2)}</td>
+                <td>${nota.DataNotaFiscal}</td>
+                <td>${nota.NumeroNotaFiscal}</td>
+                <td>${nota.Valor.toFixed(2)}</td>
             </tr>
         `;
         $('#notasFiscaisTable tbody').append(novaLinha);
     }
-
-    // Adiciona as notas fiscais na tabela
-    notasFiscais.forEach(adicionarLinha);
 
     // Exibe os campos adicionais após selecionar o arquivo
     $('#inputFile').change(function() {
