@@ -151,7 +151,12 @@ body {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px; /* Espaçamento entre "Sobre Nós" e "Vantagens" */
     text-align: center; /* Centraliza o texto */
-    
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition for the pulse and shadow effect */
+}
+
+.sobre-nos-container:hover {
+
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.185); /* Increase shadow size and change color */
 }
 
 .sobre-nos-container .section-title {
