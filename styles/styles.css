@@ -256,6 +256,7 @@ body {
 /* Forms */
 .custom-textbox {
     margin-bottom: 10px;
+
 }
 
 .forgot-password {
@@ -290,6 +291,34 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     width: 100%;
+}
+
+/* Estilo do contêiner de login e registro */
+.login-form-container {
+    width: 100%;
+    max-width: 400px; /* Ajuste a largura máxima conforme necessário */
+    margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Estilo para a mensagem de erro de login */
+.login-error {
+    display: none;
+    color: red;
+    margin-top: 10px;
+}
+
+/* Adicione outros estilos personalizados aqui */
+.custom-textbox {
+    /* Adicione seus estilos personalizados para os campos de texto aqui */
+}
+
+.forgot-password {
+    /* Adicione seus estilos personalizados para o link de "Esqueceu a senha?" aqui */
 }
 
 
