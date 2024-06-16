@@ -34,9 +34,9 @@
     <h2 class="section-title no-select">
       Notas Fiscais
       <button type="button" class="btn btn-primary btn-sm ml-3 mais" data-toggle="modal" data-target="#myModal">+</button>
-      <button type="button" class="btn btn-primary btn-sm ml-3 filter" id="filterButton" onclick="filtrarNotas()">
+      <button type="button" class="btn btn-primary btn-sm ml-3 filter" data-toggle="modal" data-target="#filterModal">
         <i class="fas fa-filter"></i> 
-      </button>
+      </button>      
       
     </h2>
     <div class="table-responsive">
@@ -97,6 +97,43 @@
       </div>
     </div>
   </div>
+<!-- Modal Filtro -->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="filterModalLabel">Filtrar Notas Fiscais</h5>
+        <button type="button" class="close" id="filterCloseButton" aria-label="Fechar" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="filterForm">
+          <div class="form-group">
+            <label for="dataInicio">Data Início:</label>
+            <input type="date" class="form-control" id="dataInicio" name="dataInicio" required>
+          </div>
+          <div class="form-group">
+            <label for="dataFim">Data Fim:</label>
+            <input type="date" class="form-control" id="dataFim" name="dataFim" required>
+          </div>
+          <div class="form-group">
+            <label for="precoInicial">Preço Inicial:</label>
+            <input type="number" class="form-control" id="precoInicial" name="precoInicial" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="precoFinal">Preço Final:</label>
+            <input type="number" class="form-control" id="precoFinal" name="precoFinal" step="0.01" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="filterForm" class="btn btn-primary">Filtrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
