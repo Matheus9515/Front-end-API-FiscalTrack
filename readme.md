@@ -50,14 +50,11 @@ Fiscal Track é uma plataforma dedicada a simplificar o monitoramento e a gestã
 
 ## Como Usar
 
-1. Clone o repositório para a sua máquina local:
+1. Baixe o arquivo como ZIP ou clone o repositório para a sua máquina local:
     ```bash
-    git clone https://github.com/seu-usuario/fiscal-track.git
+    git clone https://github.com/Matheus9515/Front-end-API-FiscalTrack.git
     ```
 
-2. Navegue até o diretório do projeto:
-    ```bash
-    cd fiscal-track
-    ```
+2. Navegue até o diretório do projeto.
 
 3. Abra o arquivo `index.html` no seu navegador para visualizar a página inicial.
