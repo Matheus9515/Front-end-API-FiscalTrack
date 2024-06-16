@@ -1,21 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const modal = document.getElementById('myModal');
+  const myModal = document.getElementById('myModal');
+  const filterModal = document.getElementById('filterModal');
   const adicionarNotaButton = document.getElementById('salvarDetalhes');
-  const closeButton = document.querySelector('.close');
+  const closeButtonMyModal = myModal.querySelector('.close');
+  const closeButtonFilterModal = filterModal.querySelector('.close');
 
   adicionarNotaButton.addEventListener('click', adicionarNotaFiscal);
-  closeButton.addEventListener('click', fecharModal);
+  closeButtonMyModal.addEventListener('click', () => fecharModal(myModal));
+  closeButtonFilterModal.addEventListener('click', () => fecharModal(filterModal));
 
-  function abrirModal() {
-    $('#myModal').modal('show');
+  function abrirModal(modal) {
+    $(modal).modal('show');
   }
 
-  function fecharModal() {
-    modal.classList.add('animate__fadeOut'); // Adicionar a animação de saída
-    modal.addEventListener('animationend', function() {
-      $('#myModal').modal('hide');
-      modal.classList.remove('animate__fadeOut'); // Remover a animação de saída após o término
-    }, { once: true });
+  function fecharModal(modal) {
+    if ($(modal).hasClass('show')) { // Verifica se o modal está aberto
+      modal.classList.add('animate__fadeOut'); // Adicionar a animação de saída
+      modal.addEventListener('animationend', function() {
+        $(modal).modal('hide');
+        modal.classList.remove('animate__fadeOut'); // Remover a animação de saída após o término
+      }, { once: true });
+    } else {
+      $(modal).modal('hide');
+    }
   }
 
   function adicionarNotaFiscal() {
@@ -43,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Limpar campos e fechar modal
       document.getElementById('formNotaFiscal').reset();
       document.getElementById('camposPreenchimento').style.display = 'none';
-      fecharModal();
+      fecharModal(myModal);
     } else {
       alert('Por favor, preencha todos os campos.');
     }
@@ -53,4 +60,18 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('inputFile').addEventListener('change', function() {
     document.getElementById('camposPreenchimento').style.display = 'block';
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('filterModal');
+  const closeButton = modal.querySelector('.close');
+  closeButton.addEventListener('click', fecharModalFilterModal);
+
+  function abrirModal2() {
+    $('#filterModal').modal('show');
+  }
+
+  function fecharModalFilterModal() {
+    fecharModal(modal);
+  }
 });
